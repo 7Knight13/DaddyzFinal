@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Art Competition &amp; Exhibition presented by Daddyz Art Gallery — Sunday, August 9th, Anugraha Pastoral Centre, Kakkunje.">
+<title>Art Competition &amp; Exhibition — Daddyz Art Gallery</title>
+<style>
+  html, body { margin:0; padding:0; }
+  *, *::before, *::after { box-sizing: border-box; }
+
+  :root {
+    --bg:#3a1f24;
+    --bg-soft: rgba(255,255,255,.05);
+    --bg-soft-strong: rgba(255,255,255,.085);
+    --bg-recede: rgba(0,0,0,.16);
+    --border-soft: rgba(255,255,255,.16);
+    --gold:#e0a83f;
+    --coral:#e2694b;
+    --cream:#fdf3e4;
+    --ink-dark:#2f1c1a;
+    --text-light:#f6ede3;
+    --text-muted:#cdb2ac;
+    --teal:#59b39f;
+    --green:#7dc383;
+    --mono: 'Courier New', Consolas, Menlo, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--text-light);
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  #pl90-public-page {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* decorative corner blobs */
+  #pl90-public-page::before, #pl90-public-page::after {
+    content:""; position:absolute; width: clamp(90px,14vw,170px); height: clamp(90px,14vw,170px);
+    border-radius:50%; z-index:0; opacity:.55; filter: blur(1px); pointer-events:none;
+  }
+  #pl90-public-page::before { top:-30px; left:-40px; background: radial-gradient(circle, #a24632, #7c3626); }
+  #pl90-public-page::after  { top:-20px; right:-40px; background: radial-gradient(circle, #c9843f, #a5652e); }
+
+  .pl90-inner { max-width: 900px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 48px); position:relative; z-index:1; }
+
+  .pl90-hero {
+    width:100%;
+    text-align:center;
+    padding: clamp(36px,6vw,64px) 0 clamp(28px,5vw,48px);
+    position:relative; z-index:1;
+  }
+  .pl90-presenters {
+    font-family: var(--sans); font-size: clamp(11px,1.6vw,12.5px); letter-spacing:.1em; text-transform:uppercase;
+    color: var(--text-muted); margin-bottom:18px; font-weight:600; line-height:1.7;
+  }
+  .pl90-presenters strong { color: var(--text-light); }
+  .pl90-badge {
+    display:inline-block; padding: 6px 16px; border:1px solid var(--gold); border-radius:20px;
+    font-size: clamp(10px,1.5vw,11px); letter-spacing:.14em; text-transform:uppercase; color: var(--gold);
+    font-family: var(--sans); font-weight:600; margin-bottom: 22px;
+  }
+  .pl90-medal-outer {
+    width: clamp(96px,13vw,132px); height: clamp(96px,13vw,132px);
+    border: 1px dashed rgba(224,168,63,.65);
+    border-radius: 50%;
+    display:flex; align-items:center; justify-content:center;
+    margin: 0 auto 22px;
+  }
+  .pl90-medal {
+    width: 72%; height: 72%; border-radius:50%;
+    background: var(--bg);
+    color: var(--gold); font-size: clamp(26px,5vw,40px); font-weight:800;
+    display:flex; align-items:center; justify-content:center;
+    border: 2px solid var(--gold);
+  }
+  .pl90-hero h1 {
+    font-size: clamp(24px,5vw,38px); margin: 0 0 4px; color: var(--text-light); font-weight:800; line-height:1.15;
+  }
+  .pl90-hero .pl90-title-accent {
+    display:block; font-style: italic; color: var(--coral); font-weight:400; font-size: clamp(18px,3.8vw,29px); margin-top:4px;
+  }
+  .pl90-hero p.sub {
+    margin: 18px auto 0; font-size: clamp(13.5px,2vw,16px); color: var(--text-muted); font-family: var(--sans);
+    max-width: 580px; line-height:1.6;
+  }
+
+  .pl90-statbar {
+    display:flex; flex-wrap:wrap; margin: 26px auto 0; max-width: 680px;
+    background: var(--bg-soft-strong); border: 1px solid var(--border-soft); border-radius: 14px; overflow:hidden;
+  }
+  .pl90-stat { flex:1; min-width: 150px; padding: 14px 18px; text-align:left; border-right:1px solid var(--border-soft); }
+  .pl90-stat:last-child { border-right:none; }
+  .pl90-stat-label {
+    font-family: var(--sans); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+    color: var(--gold); font-weight:700; margin-bottom:5px;
+  }
+  .pl90-stat-value { font-size: clamp(13.5px,1.9vw,15.5px); font-weight:700; color: var(--text-light); font-family: var(--sans); }
+  .pl90-stat-value a { color: var(--coral); text-decoration:underline; text-underline-offset:2px; font-size:12.5px; display:inline-block; margin-top:3px; }
+
+  .pl90-deadline {
+    display:inline-block; margin-top:22px; padding:9px 18px; border-radius:8px;
+    background: rgba(226,105,75,.16); border:1px solid rgba(226,105,75,.6);
+    font-family: var(--sans); font-size: clamp(12.5px,1.8vw,14px); color: var(--text-light); font-weight:700;
+  }
+  .pl90-deadline .hl { color: var(--coral); }
+
+  .pl90-cta {
+    display:block; margin: 22px auto 0; padding: 15px clamp(26px,5vw,36px);
+    background: var(--gold); color: var(--ink-dark); border-radius: 30px;
+    font-weight:700; letter-spacing:.02em; cursor:pointer; border:none; font-size: clamp(15px,2vw,16px);
+    font-family: var(--sans); min-height:48px; width: fit-content;
+  }
+  .pl90-cta:active { transform: translateY(1px); }
+
+  .pl90-section { width:100%; padding: clamp(26px,4.5vw,40px) 0; position:relative; z-index:1; }
+  .pl90-section h2 {
+    font-size: clamp(17px,2.6vw,23px); color: var(--text-light); margin:0 0 16px; font-weight:700;
+    display:flex; align-items:center; gap:10px;
+  }
+  .pl90-section h2 .pl90-h2-text { white-space:nowrap; }
+  .pl90-section h2::after { content:""; flex:1; height:1px; background: var(--border-soft); }
+
+  .pl90-timeline { position:relative; }
+  .pl90-schedule-item {
+    position:relative; padding-left:26px; padding-bottom:22px;
+    color: var(--text-muted); font-family: var(--sans); font-size: clamp(13.5px,1.8vw,15px);
+  }
+  .pl90-schedule-item::before {
+    content:""; position:absolute; left:0; top:6px; width:10px; height:10px; border-radius:50%;
+    background: var(--gold); box-shadow: 0 0 0 3px rgba(224,168,63,.18);
+  }
+  .pl90-schedule-item:not(:last-child)::after {
+    content:""; position:absolute; left:4px; top:18px; bottom:0; width:1px; background: rgba(224,168,63,.4);
+  }
+  .pl90-schedule-time {
+    display:block; font-family: var(--mono); font-weight:700; color: var(--gold);
+    font-size:12.5px; letter-spacing:.04em; text-transform:uppercase; margin-bottom:3px;
+  }
+  .pl90-schedule-desc { color: var(--text-light); }
+
+  .pl90-theme-box {
+    background: rgba(224,168,63,.12); border:1px solid rgba(224,168,63,.5); padding:18px 20px; border-radius:10px;
+    text-align:center;
+  }
+  .pl90-theme-quote { font-size: clamp(16px,2.6vw,21px); font-style:italic; color: var(--gold); margin:0 0 6px; }
+  .pl90-theme-ref { font-family: var(--sans); font-size:12.5px; color: var(--text-muted); letter-spacing:.06em; }
+
+  .pl90-callout {
+    background: rgba(150,55,50,.20); border:1px solid rgba(224,110,90,.5); padding:16px 18px; border-radius:10px;
+    font-size: clamp(13.5px,1.8vw,15px); color: var(--text-light); font-family: var(--sans);
+  }
+  .pl90-callout .hl { color: var(--gold); font-weight:700; }
+
+  table.pl90-table { width:100%; border-collapse:collapse; font-size: clamp(13px,1.8vw,15px); font-family: var(--sans); border:1px solid var(--border-soft); border-radius:10px; overflow:hidden; }
+  table.pl90-table th, table.pl90-table td { padding:11px 14px; text-align:left; border-bottom:1px solid var(--border-soft); }
+  table.pl90-table th { background: var(--bg-soft-strong); color: var(--gold); text-transform:uppercase; font-family: var(--mono); font-size:11.5px; letter-spacing:.1em; font-weight:700; }
+  table.pl90-table td { color: var(--text-light); background: var(--bg-recede); }
+  table.pl90-table tr:nth-child(even) td { background: var(--bg-soft); }
+  table.pl90-table tr:last-child td { border-bottom:none; }
+
+  .pl90-provide-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:14px; }
+  .pl90-provide-card {
+    background: var(--bg-soft-strong); border:1px solid var(--border-soft); border-radius:10px; padding:16px;
+    font-size: clamp(13px,1.8vw,14.5px); color: var(--text-muted); font-family: var(--sans);
+  }
+  .pl90-card-title { display:block; margin-bottom:8px; font-weight:700; font-size:14.5px; }
+  .pl90-provide-card.provided .pl90-card-title { color: var(--green); }
+  .pl90-provide-card.bring .pl90-card-title { color: var(--gold); }
+  .pl90-provide-card ul { margin:0; padding-left:18px; }
+
+  /* ---- Registration card ---- */
+  .pl90-form-card {
+    background: var(--cream); color: var(--ink-dark); border-radius: 18px;
+    padding: clamp(20px,4vw,34px); margin-top: 6px;
+    font-family: var(--sans);
+    border-top: 2px dashed rgba(255,255,255,.35);
+  }
+  .pl90-form-card h2 { color: var(--ink-dark); font-family: 'Georgia','Times New Roman',serif; font-size: clamp(20px,3vw,26px); display:block; margin:0 0 4px; }
+  .pl90-form-card h2::after { display:none; }
+  .pl90-form-sub { font-size:14px; color:#6b5a4e; margin: 0 0 20px; }
+
+  .pl90-field { margin-bottom:14px; }
+  .pl90-field label {
+    display:block; font-size: 11px; font-weight:700; margin-bottom:6px; color:#8a7360;
+    text-transform:uppercase; letter-spacing:.08em;
+  }
+  .pl90-field label .pl90-opt { color:#b7a692; font-weight:600; letter-spacing:.04em; text-transform:none; }
+  .pl90-field input, .pl90-field textarea {
+    width:100%; padding:12px 13px; border:1px solid #e3d5c2; border-radius:8px;
+    font-size:16px; /* 16px prevents iOS auto-zoom on focus */
+    font-family:inherit; background:#fff; color: var(--ink-dark);
+  }
+  .pl90-field input::placeholder, .pl90-field textarea::placeholder { color:#b7a692; }
+  .pl90-field-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  @media (max-width:560px) { .pl90-field-row { grid-template-columns:1fr; } }
+
+  .pl90-hint { font-size:12.5px; color: var(--coral); margin-top:5px; font-weight:600; }
+  .pl90-submit-btn {
+    width:100%; padding:16px; background: var(--coral); color:#fff; border:none; border-radius:10px;
+    font-size:16px; font-weight:700; cursor:pointer; margin-top:8px; font-family: inherit; min-height:52px;
+  }
+  .pl90-submit-btn:disabled { opacity:.6; cursor:wait; }
+  .pl90-error-inline { color:#b91c1c; font-size:13px; margin-top:8px; display:none; font-weight:600; }
+
+  /* ---- Confirmation ---- */
+  .pl90-confirm { text-align:center; padding:10px 0; }
+  .pl90-stamp {
+    display:inline-block; padding:6px 16px; border:2px solid #2f7a3d; color:#2f7a3d; border-radius:6px;
+    font-weight:800; letter-spacing:.05em; margin-bottom:16px; transform:rotate(-2deg); font-size:13px;
+  }
+  .pl90-refnum {
+    font-family: var(--mono); font-size: clamp(20px,5vw,28px); font-weight:800; letter-spacing:.05em;
+    background:#fff; border:2px dashed var(--coral); border-radius:10px; padding:16px; margin:14px 0; color: var(--ink-dark);
+    word-break: break-all;
+  }
+  .pl90-copy-btn, .pl90-form-secondary {
+    padding:12px 20px; border:1px solid var(--ink-dark); background:#fff; color: var(--ink-dark);
+    border-radius:8px; font-weight:700; cursor:pointer; font-family: inherit; min-height:44px; font-size:14px;
+  }
+
+  /* ---- Footer + organizer ---- */
+  .pl90-footer { width:100%; padding: clamp(24px,4vw,36px) 0 clamp(30px,5vw,44px); text-align:center; position:relative; z-index:1; border-top:1px solid var(--border-soft); margin-top: clamp(20px,4vw,32px); }
+  .pl90-footer-tagline { font-family: var(--sans); font-size:13px; color: var(--text-muted); margin: 0 0 10px; }
+  .pl90-organizer-toggle {
+    background:none; border:none; padding:8px; cursor:pointer;
+    font-family: var(--sans); font-size:13px; color: var(--text-muted);
+    text-decoration: underline; text-underline-offset: 3px;
+  }
+  .pl90-organizer-panel-wrap {
+    width:100%; padding: clamp(20px,4vw,32px) 0 clamp(30px,5vw,44px);
+    background: var(--bg-recede); border-top:1px solid var(--border-soft);
+    font-family: var(--sans); position:relative; z-index:1;
+  }
+  #pl90-org-locked .pl90-field label { color: var(--text-muted); }
+  #pl90-org-locked .pl90-field input { background: var(--bg-soft); border:1px solid var(--border-soft); color: var(--text-light); }
+  .pl90-organizer-panel table { width:100%; border-collapse:collapse; font-size: clamp(11.5px,1.5vw,13px); margin-top:12px; }
+  .pl90-organizer-panel th, .pl90-organizer-panel td { border:1px solid var(--border-soft); padding:6px 8px; text-align:left; color: var(--text-light); white-space:nowrap; }
+  .pl90-organizer-panel th { background: var(--bg-soft-strong); color: var(--gold); text-transform:uppercase; font-family: var(--mono); font-size:10.5px; letter-spacing:.08em; }
+  .pl90-org-btn { padding:10px 18px; border:1px solid var(--gold); background:transparent; color: var(--gold); border-radius:8px; font-weight:700; cursor:pointer; margin-right:8px; font-size: clamp(12.5px,1.6vw,14px); font-family:inherit; min-height:44px; }
+  .pl90-org-table-scroll { overflow-x:auto; -webkit-overflow-scrolling: touch; }
+  #pl90-org-count { color: var(--text-light); }
+
+  @media (max-width: 700px) {
+    .pl90-statbar { flex-direction:column; }
+    .pl90-stat { border-right:none; border-bottom:1px solid var(--border-soft); }
+    .pl90-stat:last-child { border-bottom:none; }
+    .pl90-section h2 { flex-wrap:wrap; }
+    .pl90-section h2 .pl90-h2-text { white-space:normal; }
+  }
+</style>
+</head>
+<body>
+
+<div id="err-banner" style="display:none;position:sticky;top:0;z-index:9999;background:#b91c1c;color:#fff;padding:12px 16px;font:600 14px/1.4 -apple-system,Segoe UI,Roboto,sans-serif;"></div>
+
+<div id="pl90-public-page">
+  <div class="pl90-hero">
+    <div class="pl90-inner">
+      <div class="pl90-medal-outer"><div class="pl90-medal">90</div></div>
+
+      <div class="pl90-presenters">
+        Daddyz Art Gallery presents
+      </div>
+
+      <div class="pl90-badge">Sunday · August 9th, 2026</div>
+
+      <h1>Art Competition &amp; Exhibition
+        <span class="pl90-title-accent">celebrating Mr. Peter Lewis's 90th Birthday</span>
+      </h1>
+
+      <p class="sub">Artists of all ages are invited to bring their talent and creativity to celebrate this milestone — paint on the day, exhibit your work, and take part in a live auction.</p>
+
+      <div class="pl90-statbar">
+        <div class="pl90-stat">
+          <div class="pl90-stat-label">Date</div>
+          <div class="pl90-stat-value">Sunday, August 9th</div>
+        </div>
+        <div class="pl90-stat">
+          <div class="pl90-stat-label">Enrolment</div>
+          <div class="pl90-stat-value">10:00 AM</div>
+        </div>
+        <div class="pl90-stat">
+          <div class="pl90-stat-label">Venue</div>
+          <div class="pl90-stat-value">
+            Anugraha, Pastoral Centre, Kakkunje
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Anugraha+Pastoral+Centre+Kakkunje+Udupi" target="_blank" rel="noopener">View on Maps →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pl90-deadline">Registration closes <span class="hl">2nd August 2026</span></div>
+
+      <button class="pl90-cta" type="button" id="pl90-cta-btn">Register Now</button>
+    </div>
+  </div>
+
+  <div class="pl90-section">
+    <div class="pl90-inner">
+      <h2><span class="pl90-h2-text">✍️ Theme</span></h2>
+      <div class="pl90-theme-box">
+        <p class="pl90-theme-quote">“He has made everything beautiful in its time”</p>
+        <div class="pl90-theme-ref">— Ecclesiastes 3:11</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pl90-section">
+    <div class="pl90-inner">
+      <h2><span class="pl90-h2-text">🎨 Event Schedule</span></h2>
+      <div class="pl90-timeline">
+        <div class="pl90-schedule-item"><div class="pl90-schedule-time">10:00 AM</div><div class="pl90-schedule-desc">Enrolment</div></div>
+        <div class="pl90-schedule-item"><div class="pl90-schedule-time">10:30 AM – 1:30 PM</div><div class="pl90-schedule-desc">Art Competition</div></div>
+        <div class="pl90-schedule-item"><div class="pl90-schedule-time">1:30 PM</div><div class="pl90-schedule-desc">Lunch (provided)</div></div>
+        <div class="pl90-schedule-item"><div class="pl90-schedule-time">After Lunch</div><div class="pl90-schedule-desc">Live Auction of the artwork</div></div>
+        <div class="pl90-schedule-item"><div class="pl90-schedule-time">Until Fri 14 Aug 2026</div><div class="pl90-schedule-desc">Artwork exhibited</div></div>
+        <div class="pl90-schedule-item"><div class="pl90-schedule-time">Fri 14 Aug 2026 · 4:00 PM</div><div class="pl90-schedule-desc">Prize Distribution</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pl90-section">
+    <div class="pl90-inner">
+      <h2><span class="pl90-h2-text">🏆 How the Winners Are Chosen</span></h2>
+      <div class="pl90-callout">
+        All completed paintings will be auctioned live. In each age category, the painting that sells for the <span class="hl">highest amount</span> is crowned the winner. To keep judging completely fair, artists' names are never announced during the auction — each painting is identified only by the <span class="hl">reference number</span> assigned at registration.
+      </div>
+    </div>
+  </div>
+
+  <div class="pl90-section">
+    <div class="pl90-inner">
+      <h2><span class="pl90-h2-text">📏 Age Categories &amp; Canvas Sizes</span></h2>
+      <table class="pl90-table">
+        <tr><th>Category</th><th>Canvas Size</th></tr>
+        <tr><td>12 years &amp; under</td><td>A4</td></tr>
+        <tr><td>13 – 24 years</td><td>A3</td></tr>
+        <tr><td>25 years &amp; above</td><td>A3</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="pl90-section">
+    <div class="pl90-inner">
+      <h2><span class="pl90-h2-text">🎒 What's Provided vs. What to Bring</span></h2>
+      <div class="pl90-provide-grid">
+        <div class="pl90-provide-card provided">
+          <span class="pl90-card-title">✓ Provided</span>
+          <ul><li>Canvas sheets, sized to your age category</li></ul>
+        </div>
+        <div class="pl90-provide-card bring">
+          <span class="pl90-card-title">Bring your own</span>
+          <ul><li>Paints, brushes, pencils &amp; other art materials</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pl90-section" id="pl90-form-section">
+    <div class="pl90-inner">
+      <div class="pl90-form-card">
+        <h2>Register</h2>
+        <p class="pl90-form-sub">Sign up to receive your reference number — used to keep the auction anonymous and fair.</p>
+
+        <div id="pl90-form-view">
+          <div class="pl90-field">
+            <label for="pl90-name">Full Name</label>
+            <input id="pl90-name" type="text" placeholder="Your full name" autocomplete="name">
+          </div>
+
+          <div class="pl90-field">
+            <label for="pl90-phone">Contact Number</label>
+            <input id="pl90-phone" type="tel" inputmode="tel" placeholder="e.g. +91 98765 43210" autocomplete="tel">
+          </div>
+
+          <div id="pl90-artist-fields">
+            <div class="pl90-field-row">
+              <div class="pl90-field">
+                <label for="pl90-age">Age</label>
+                <input id="pl90-age" type="number" inputmode="numeric" min="1" max="120" placeholder="e.g. 24">
+                <div class="pl90-hint" id="pl90-age-hint" style="display:none;"></div>
+              </div>
+              <div class="pl90-field">
+                <label for="pl90-dob">Date of Birth</label>
+                <input id="pl90-dob" type="text" placeholder="DD/MM/YYYY" autocomplete="bday">
+              </div>
+            </div>
+            <div class="pl90-field">
+              <label for="pl90-parish">From which Parish <span class="pl90-opt">(optional)</span></label>
+              <input id="pl90-parish" type="text" placeholder="e.g. St. Mary's Parish">
+            </div>
+            <div class="pl90-field">
+              <label for="pl90-arttype">Type of Art</label>
+              <input id="pl90-arttype" type="text" placeholder="e.g. Painting, Sketching, Watercolor">
+            </div>
+          </div>
+
+          <div class="pl90-field">
+            <label for="pl90-email">Email Address</label>
+            <input id="pl90-email" type="email" inputmode="email" placeholder="you@example.com" autocomplete="email">
+          </div>
+
+          <button type="button" class="pl90-submit-btn" id="pl90-submit-btn">Get My Reference Number</button>
+          <div class="pl90-error-inline" id="pl90-inline-error"></div>
+        </div>
+
+        <div id="pl90-confirm-view" style="display:none;" class="pl90-confirm">
+          <div class="pl90-stamp">✓ Registration Confirmed</div>
+          <div>Your reference number:</div>
+          <div class="pl90-refnum" id="pl90-refnum-display"></div>
+          <p style="font-size:13px;color:#6b5a4e;">This number — not your name — is what will be called out during the live auction. Please save it.</p>
+          <button type="button" class="pl90-copy-btn" id="pl90-copy-btn">Copy reference #</button>
+          <div style="margin-top:16px;"><button type="button" class="pl90-form-secondary" id="pl90-register-another">Register another entry</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pl90-footer">
+    <div class="pl90-inner">
+      <p class="pl90-footer-tagline">Daddyz Art Gallery — we can't wait to see the creativity on display 🎉</p>
+      <button type="button" class="pl90-organizer-toggle" id="pl90-organizer-toggle">Organizer view</button>
+    </div>
+
+    <div class="pl90-organizer-panel-wrap" id="pl90-organizer-panel" style="display:none;">
+      <div class="pl90-inner">
+        <div id="pl90-org-locked">
+          <div class="pl90-field">
+            <label for="pl90-org-pass">Enter organizer passcode</label>
+            <input id="pl90-org-pass" type="password" placeholder="Passcode">
+          </div>
+          <button type="button" class="pl90-org-btn" id="pl90-org-unlock-btn">Unlock</button>
+          <div class="pl90-error-inline" id="pl90-org-error"></div>
+        </div>
+        <div id="pl90-org-unlocked" style="display:none;" class="pl90-organizer-panel">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+            <strong id="pl90-org-count">0 registrations</strong>
+            <div>
+              <button type="button" class="pl90-org-btn" id="pl90-org-refresh-btn">Refresh</button>
+              <button type="button" class="pl90-org-btn" id="pl90-org-export-btn">Export CSV</button>
+            </div>
+          </div>
+          <div class="pl90-org-table-scroll">
+            <table id="pl90-org-table">
+              <thead>
+                <tr>
+                  <th>Ref #</th><th>Type</th><th>Full Name</th><th>Phone</th><th>Age</th><th>DOB</th><th>Parish</th><th>Art Type / Note</th><th>Email</th><th>Time</th>
+                </tr>
+              </thead>
+              <tbody id="pl90-org-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  // The organizer passcode is verified server-side in Apps Script — it is
+  // deliberately NOT stored in this file.
+
+  // ---------- Error banner ----------
+  var errBanner = document.getElementById("err-banner");
+  function showError(msg) {
+    try {
+      errBanner.style.display = "block";
+      errBanner.textContent = "⚠ Something went wrong: " + msg;
+      window.scrollTo(0, 0);
+    } catch (e) { /* nothing more we can do */ }
+  }
+  window.addEventListener("error", function (e) {
+    showError((e && e.message) ? e.message : "unknown script error");
+  });
+  window.addEventListener("unhandledrejection", function (e) {
+    var reason = e && e.reason ? (e.reason.message || String(e.reason)) : "unknown promise rejection";
+    showError(reason);
+  });
+
+  // ---------- Google Sheets backend (Apps Script Web App) ----------
+  var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbylcTh1l3Aztnl7m3JqP-XOCes4GBTJX6SeOdfvvxQObc_iCux1fnoVZR2CRW9mslIrEg/exec";
+
+  function byId(id) { return document.getElementById(id); }
+
+  // The server generates and uniqueness-checks the reference number itself,
+  // so the client sends the entry and reads back whatever refId it returns.
+  function postEntryToSheet(entry) {
+    if (typeof fetch !== "function") {
+      return Promise.reject(new Error("this browser does not support fetch"));
+    }
+    return fetch(SCRIPT_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" }, // avoids a CORS preflight to Apps Script
+      body: JSON.stringify(entry)
+    }).then(function (res) {
+      if (!res.ok) { throw new Error("Server responded with status " + res.status); }
+      return res.text();
+    }).then(function (text) {
+      var data;
+      try { data = JSON.parse(text); }
+      catch (e) { throw new Error("Server returned an unexpected response (not JSON)"); }
+      if (!data || !data.refId) {
+        throw new Error((data && data.error) || "Server did not return a reference number");
+      }
+      return data.refId;
+    });
+  }
+
+  // Organizer list is gated server-side (?action=list&pass=...).
+  function fetchEntriesWithPasscode(passcode) {
+    if (typeof fetch !== "function") {
+      return Promise.reject(new Error("this browser does not support fetch"));
+    }
+    var url = SCRIPT_URL + "?action=list&pass=" + encodeURIComponent(passcode || "");
+    return fetch(url, { method: "GET" }).then(function (res) {
+      if (!res.ok) { throw new Error("Server responded with status " + res.status); }
+      return res.text();
+    }).then(function (text) {
+      var data;
+      try { data = JSON.parse(text); }
+      catch (e) { throw new Error("Server returned an unexpected response (not JSON)"); }
+      if (data && data.error === "unauthorized") {
+        return { ok: false, unauthorized: true };
+      }
+      if (!data || !Array.isArray(data.entries)) {
+        throw new Error((data && data.error) || "Unexpected response format from server");
+      }
+      var entries = data.entries.slice();
+      entries.sort(function (a, b) {
+        return String(a.timestamp || "").localeCompare(String(b.timestamp || ""));
+      });
+      return { ok: true, entries: entries };
+    });
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  function safeScrollTo(el) {
+    if (el && typeof el.scrollIntoView === "function") {
+      try { el.scrollIntoView({ behavior: "smooth", block: "start" }); } catch (e) { /* non-critical */ }
+    }
+  }
+
+  // ================= REGISTRATION =================
+  {
+    var regType = "artist"; // only registration type now that Associate has been removed
+    var inlineError = byId("pl90-inline-error");
+    var submitBtn = byId("pl90-submit-btn");
+    var ageInput = byId("pl90-age");
+    var ageHint = byId("pl90-age-hint");
+
+    ageInput.addEventListener("input", function () {
+      var age = parseInt(ageInput.value, 10);
+      if (isNaN(age)) { ageHint.style.display = "none"; return; }
+      var cat, size;
+      if (age <= 12) { cat = "12 years & under"; size = "A4"; }
+      else if (age <= 24) { cat = "13–24 years"; size = "A3"; }
+      else { cat = "25 years & above"; size = "A3"; }
+      ageHint.textContent = "Category: " + cat + " — canvas size " + size;
+      ageHint.style.display = "block";
+    });
+
+    byId("pl90-cta-btn").addEventListener("click", function () {
+      safeScrollTo(byId("pl90-form-section"));
+    });
+
+    function showInlineError(msg) {
+      inlineError.textContent = msg;
+      inlineError.style.display = "block";
+    }
+    function clearInlineError() {
+      inlineError.style.display = "none";
+      inlineError.textContent = "";
+    }
+
+    function resetSubmitBtn() {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Get My Reference Number";
+    }
+
+    submitBtn.addEventListener("click", function () {
+      clearInlineError();
+
+      var entry = { type: regType };
+      var name = byId("pl90-name").value.trim();
+      var phone = byId("pl90-phone").value.trim();
+      var email = byId("pl90-email").value.trim();
+
+      // --- Required-field validation (everything except Parish) ---
+      if (!name) { showInlineError("Please enter your full name."); return; }
+      if (!phone) { showInlineError("Please enter your contact number."); return; }
+
+      var age = byId("pl90-age").value.trim();
+      var dob = byId("pl90-dob").value.trim();
+      var artType = byId("pl90-arttype").value.trim();
+      if (!age) { showInlineError("Please enter your age."); return; }
+      if (!dob) { showInlineError("Please enter your date of birth."); return; }
+      if (!artType) { showInlineError("Please enter your type of art."); return; }
+      entry.age = age;
+      entry.dob = dob;
+      entry.parish = byId("pl90-parish").value.trim(); // optional
+      entry.artType = artType;
+
+      if (!email) { showInlineError("Please enter your email address."); return; }
+      if (email.indexOf("@") === -1 || email.indexOf(".") === -1) {
+        showInlineError("Please enter a valid email address.");
+        return;
+      }
+
+      entry.name = name;
+      entry.phone = phone;
+      entry.email = email;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Registering…";
+
+      postEntryToSheet(entry).then(function (refId) {
+        byId("pl90-form-view").style.display = "none";
+        byId("pl90-refnum-display").textContent = refId;
+        byId("pl90-confirm-view").style.display = "block";
+        resetSubmitBtn();
+      }).catch(function (err) {
+        var msg = (err && err.message) ? err.message : String(err);
+        showInlineError("Registration failed: " + msg);
+        showError(msg);
+        resetSubmitBtn();
+      });
+    });
+
+    byId("pl90-register-another").addEventListener("click", function () {
+      ["pl90-name", "pl90-phone", "pl90-age", "pl90-dob", "pl90-parish", "pl90-arttype", "pl90-email"]
+        .forEach(function (id) { byId(id).value = ""; });
+      ageHint.style.display = "none";
+      clearInlineError();
+      byId("pl90-confirm-view").style.display = "none";
+      byId("pl90-form-view").style.display = "block";
+    });
+
+    byId("pl90-copy-btn").addEventListener("click", function () {
+      var text = byId("pl90-refnum-display").textContent;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () {
+          var btn = byId("pl90-copy-btn");
+          var original = btn.textContent;
+          btn.textContent = "Copied!";
+          setTimeout(function () { btn.textContent = original; }, 1500);
+        }).catch(function () { /* ignore clipboard errors */ });
+      }
+    });
+  }
+
+  // ================= ORGANIZER (inline, bottom of page) =================
+  {
+    var orgToggleBtn = byId("pl90-organizer-toggle");
+    var orgPanelWrap = byId("pl90-organizer-panel");
+    var orgLocked = byId("pl90-org-locked");
+    var orgUnlocked = byId("pl90-org-unlocked");
+    var orgPassInput = byId("pl90-org-pass");
+    var orgError = byId("pl90-org-error");
+    var unlockBtn = byId("pl90-org-unlock-btn");
+    var refreshBtn = byId("pl90-org-refresh-btn");
+    var storedPasscode = null;
+
+    orgToggleBtn.addEventListener("click", function () {
+      var isHidden = orgPanelWrap.style.display === "none";
+      orgPanelWrap.style.display = isHidden ? "block" : "none";
+      if (isHidden) { safeScrollTo(orgPanelWrap); }
+    });
+
+    unlockBtn.addEventListener("click", function () {
+      orgError.style.display = "none";
+      var attempted = orgPassInput.value;
+      unlockBtn.disabled = true;
+      unlockBtn.textContent = "Checking…";
+      fetchEntriesWithPasscode(attempted).then(function (result) {
+        unlockBtn.disabled = false;
+        unlockBtn.textContent = "Unlock";
+        if (!result.ok) {
+          orgError.textContent = "Incorrect passcode.";
+          orgError.style.display = "block";
+          return;
+        }
+        storedPasscode = attempted;
+        orgLocked.style.display = "none";
+        orgUnlocked.style.display = "block";
+        renderOrganizerTable(result.entries);
+      }).catch(function (e) {
+        unlockBtn.disabled = false;
+        unlockBtn.textContent = "Unlock";
+        orgError.textContent = "Could not reach the server: " + (e.message || String(e));
+        orgError.style.display = "block";
+      });
+    });
+
+    refreshBtn.addEventListener("click", function () {
+      refreshBtn.disabled = true;
+      refreshBtn.textContent = "Refreshing…";
+      fetchEntriesWithPasscode(storedPasscode).then(function (result) {
+        refreshBtn.disabled = false;
+        refreshBtn.textContent = "Refresh";
+        if (result.ok) { renderOrganizerTable(result.entries); }
+      }).catch(function (e) {
+        refreshBtn.disabled = false;
+        refreshBtn.textContent = "Refresh";
+        showError(e.message || String(e));
+      });
+    });
+
+    function renderOrganizerTable(entries) {
+      var tbody = byId("pl90-org-tbody");
+      tbody.innerHTML = "";
+      entries.forEach(function (e) {
+        var tr = document.createElement("tr");
+        var artOrNote = e.type === "artist" ? (e.artType || "") : ("(associate) " + (e.note || ""));
+        tr.innerHTML =
+          "<td>" + escapeHtml(e.refId || "") + "</td>" +
+          "<td>" + escapeHtml(e.type || "") + "</td>" +
+          "<td>" + escapeHtml(e.name || "") + "</td>" +
+          "<td>" + escapeHtml(e.phone || "") + "</td>" +
+          "<td>" + escapeHtml(e.age || "") + "</td>" +
+          "<td>" + escapeHtml(e.dob || "") + "</td>" +
+          "<td>" + escapeHtml(e.parish || "") + "</td>" +
+          "<td>" + escapeHtml(artOrNote) + "</td>" +
+          "<td>" + escapeHtml(e.email || "") + "</td>" +
+          "<td>" + escapeHtml(String(e.timestamp || "").replace("T", " ").slice(0, 16)) + "</td>";
+        tbody.appendChild(tr);
+      });
+      byId("pl90-org-count").textContent = entries.length + " registration" + (entries.length === 1 ? "" : "s");
+      window._pl90LastEntries = entries;
+    }
+
+    byId("pl90-org-export-btn").addEventListener("click", function () {
+      var entries = window._pl90LastEntries || [];
+      var headers = ["refId", "type", "name", "phone", "age", "dob", "parish", "artType", "note", "email", "timestamp"];
+      var rows = [headers.join(",")];
+      entries.forEach(function (e) {
+        rows.push(headers.map(function (h) {
+          var v = e[h] === undefined || e[h] === null ? "" : String(e[h]);
+          return '"' + v.replace(/"/g, '""') + '"';
+        }).join(","));
+      });
+      var csv = rows.join("\n");
+      var blob = new Blob([csv], { type: "text/csv" });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = "registrations.csv";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+  }
+})();
+</script>
+</body>
+</html>
